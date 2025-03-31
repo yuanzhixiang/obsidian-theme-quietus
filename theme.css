@@ -139,3 +139,9 @@ body:not(.is-mobile)
 		display: none;
 	}
 }
+
+.cm-s-obsidian span.obsidian-search-match-highlight {
+	background-color: var(--text-highlight-bg);
+	box-shadow: none;
+	border-radius: 0;
+}
