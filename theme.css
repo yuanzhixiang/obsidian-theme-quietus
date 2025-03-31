@@ -1,34 +1,95 @@
+/*un-wrap codeblock*/
+.HyperMD-codeblock {
+	white-space: nowrap;
+}
+
+/* 图片居中 */
+.markdown-source-view.mod-cm6 .cm-content > img {
+	margin: auto !important;
+}
+
+/* 图片悬停效果 */
+.markdown-source-view.mod-cm6 .cm-content > img {
+	transition: transform 0.5s ease, box-shadow 0.5s ease;
+	max-width: 100%;
+	&:hover {
+		transform: scale(1.005);
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+	}
+}
+
+body.theme-light {
+	/* 设置强调色 */
+	--accent-color: #8a5cf5;
+	/* 设置文字背景高亮色 */
+	--text-highlight-bg: color-mix(
+		in srgb,
+		var(--accent-color) 25%,
+		transparent
+	);
+}
+
+/* 设置内部链接样式 */
+.markdown-source-view.mod-cm6 .cm-hmd-internal-link .cm-underline {
+	text-decoration: none;
+}
+
+.markdown-source-view.mod-cm6 .cm-hmd-internal-link .cm-underline::before {
+	content: "↪ ";
+}
+
+.markdown-source-view.mod-cm6 .cm-hmd-internal-link:hover,
+.markdown-source-view.mod-cm6 .cm-hmd-internal-link .cm-underline:hover {
+	text-decoration: none !important;
+	background: linear-gradient(transparent 50%, var(--text-highlight-bg) 50%);
+}
+
+/* 设置外部链接样式 */
+.markdown-source-view.mod-cm6 .cm-link .cm-underline:hover,
+.markdown-source-view.mod-cm6 .cm-url .cm-underline:hover {
+	color: var(--accent-color);
+}
+
+/* 设置 checkbox 样式 */
+input[type="checkbox"]:checked {
+	background-color: rgba(0, 0, 0, 0); /* checkbox 背景变为白色 */
+	border-color: #1a1a1a; /* checkbox 边框颜色为黑色 */
+}
+
+input[type="checkbox"]:checked::after {
+	background-color: #1a1a1a; /* 对勾改为黑色 */
+	-webkit-mask-image: url("data:image/svg+xml; utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='10'><path fill='black' fill-rule='evenodd' d='M10.28.22a.75.75 0 0 1 .073 1.058l-5.5 6.5a.75.75 0 0 1-1.13.02L1.22 5.28a.75.75 0 1 1 1.06-1.06L4.3 6.19l4.95-5.85A.75.75 0 0 1 10.28.22Z'/></svg>");
+	-webkit-mask-size: 65%;
+	-webkit-mask-position: 50% 60%;
+	-webkit-mask-repeat: no-repeat;
+}
+
 body {
-	--radius-s: 0px;
-	--radius-m: 0px;
-	--radius-l: 0px;
-	--input-radius: 0px;
-	--tab-radius-active: 0px;
-	--checkbox-radius: 0px;
-	--toggle-radius: 0px;
-	--toggle-thumb-radius: 0px;
-	--slider-thumb-radius: 0px;
+	/* 数字显示为等宽 */
+	font-variant-numeric: tabular-nums;
 }
 
-.workspace-tab-header.is-active::before, .workspace-tab-header.is-active::after {
-	display: none;
+/* 设置侧边栏 */
+.mod-sidedock.mod-left-split {
+	z-index: var(--layer-sidedock);
 }
 
-svg * {
-	stroke-linecap: square;
-	stroke-linejoin: miter;
-	rx: 0;
-	ry: 0;
-}
+body:not(.is-mobile)
+	.workspace-split.mod-left-split
+	.workspace-sidedock-vault-profile {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	flex-direction: column;
+	width: var(--ribbon-width);
+	border-top: none;
+	/* border-right: var(--tab-outline-width) solid var(--tab-outline-color); */
 
-.menu {
-	padding: var(--size-2-1);
-}
+	.workspace-drawer-vault-actions {
+		display: contents;
+	}
 
-.menu-item {
-	padding: var(--size-4-1) var(--size-4-2);
-}
-
-.menu-separator {
-	margin: var(--size-2-1) calc(var(--size-2-1) * -1);
+	.workspace-drawer-vault-name {
+		display: none;
+	}
 }
