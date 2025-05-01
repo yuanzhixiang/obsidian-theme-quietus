@@ -16,6 +16,9 @@ body.theme-light {
 	--link-unresolved-opacity: 1;
 	--link-unresolved-color: var(--accent-color);
 
+	/* 设置行内代码块背景色 */
+	--quietus-inline-code-background: var(--text-highlight-bg);
+
 	--quietus-text-strong-color: #1a1a1a;
 	/* checkbox 勾上后对勾的颜色 */
 	--quietus-checkbox-checked-svg-bg-color: var(--text-normal);
@@ -46,6 +49,9 @@ body.theme-dark {
 		var(--accent-color) 45%,
 		transparent
 	);
+
+	/* 设置行内代码块背景色 */
+	--quietus-inline-code-background: var(--text-highlight-bg);
 
 	/* checkbox 勾上后对勾的颜色 */
 	--quietus-checkbox-checked-svg-bg-color: var(--text-normal);
@@ -144,4 +150,8 @@ body:not(.is-mobile)
 	background-color: var(--text-highlight-bg);
 	box-shadow: none;
 	border-radius: 0;
+}
+
+.cm-s-obsidian .cm-inline-code:not(.cm-formatting) {
+	background-color: var(--quietus-inline-code-background);
 }
