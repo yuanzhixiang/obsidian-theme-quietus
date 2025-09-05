@@ -97,6 +97,10 @@ body.theme-dark {
 }
 
 /* 设置外部链接样式 */
+.markdown-source-view.mod-cm6 .cm-url {
+	font-family: var(--font-monospace);
+}
+
 .markdown-source-view.mod-cm6 .cm-link .cm-underline:hover,
 .markdown-source-view.mod-cm6 .cm-url .cm-underline:hover {
 	color: var(--accent-color);
