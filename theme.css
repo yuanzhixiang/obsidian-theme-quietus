@@ -163,3 +163,27 @@ body:not(.is-mobile)
 .cm-s-obsidian .cm-inline-code:not(.cm-formatting) {
 	background-color: var(--quietus-inline-code-background);
 }
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+	border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--scrollbar-thumb-bg);
+	border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--scrollbar-thumb-bg-hover);
+}
+
+::-webkit-scrollbar-corner {
+	background: transparent;
+}
