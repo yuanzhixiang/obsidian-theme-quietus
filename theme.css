@@ -165,27 +165,29 @@ body:not(.is-mobile)
 }
 
 /* 滚动条样式 */
-::-webkit-scrollbar {
-	width: 6px;
-	height: 6px;
-}
+* {
+	&::-webkit-scrollbar {
+		width: 6px;
+		height: 6px;
+	}
 
-::-webkit-scrollbar-track {
-	background: transparent;
-	border-radius: 4px;
-}
+	&::-webkit-scrollbar-track {
+		background: transparent;
+		border-radius: 4px;
+	}
 
-::-webkit-scrollbar-thumb {
-	background: var(--scrollbar-thumb-bg);
-	border-radius: 4px;
-}
+	&::-webkit-scrollbar-thumb {
+		background: var(--scrollbar-thumb-bg);
+		border-radius: 4px;
+	}
 
-::-webkit-scrollbar-thumb:hover {
-	background: var(--scrollbar-thumb-bg-hover);
-}
+	&::-webkit-scrollbar-thumb:hover {
+		background: var(--scrollbar-thumb-bg-hover);
+	}
 
-::-webkit-scrollbar-corner {
-	background: transparent;
+	&::-webkit-scrollbar-corner {
+		background: transparent;
+	}
 }
 
 /* 标题样式 */
