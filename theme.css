@@ -187,3 +187,74 @@ body:not(.is-mobile)
 ::-webkit-scrollbar-corner {
 	background: transparent;
 }
+
+/* 标题样式 */
+/*-- display H1-h6 in gutter--*/
+
+body:not(.alt-heading-off) h1:before,
+body:not(.alt-heading-off) .HyperMD-header-1:before {
+	content: "H1";
+	font-size: 10px;
+	margin-left: -13px;
+	margin-right: 1px;
+	color: var(--h1-color);
+}
+
+body:not(.alt-heading-off) h2:before,
+body:not(.alt-heading-off) .HyperMD-header-2:before {
+	content: "H2";
+	font-size: 10px;
+	margin-left: -13px;
+	margin-right: 1px;
+	color: var(--h2-color);
+}
+
+body:not(.alt-heading-off) h3:not(.svelte-1vwr9dd):before,
+body:not(.alt-heading-off) .HyperMD-header-3:before {
+	content: "H3";
+	font-size: 10px;
+	margin-left: -13px;
+	margin-right: 1px;
+	color: var(--h3-color);
+}
+
+body:not(.alt-heading-off) h4:before,
+body:not(.alt-heading-off) .HyperMD-header-4:before {
+	content: "H4";
+	font-size: 10px;
+	margin-left: -13px;
+	margin-right: 1px;
+	color: var(--h4-color);
+}
+
+body:not(.alt-heading-off) h5:before,
+body:not(.alt-heading-off) .HyperMD-header-5:before {
+	content: "H5";
+	font-size: 10px;
+	margin-left: -13px;
+	margin-right: 1px;
+	color: var(--h5-color);
+}
+
+body:not(.alt-heading-off) h6:before,
+body:not(.alt-heading-off) .HyperMD-header-6:before {
+	content: "H6";
+	font-size: 10px;
+	margin-left: -13px;
+	margin-right: 1px;
+	color: var(--h6-color);
+}
+
+/* 
+* 调整标题的上下间距
+*/
+.cm-s-obsidian .HyperMD-header {
+	padding-inline-start: 0 !important;
+	padding-top: 5px !important;
+	/* padding-bottom: 5px !important; */
+}
+
+/* 设置标题底部线条 */
+body:not(.heading-bottom-line-off) .cm-s-obsidian .HyperMD-header {
+	border-bottom: dashed 0.5px;
+}
