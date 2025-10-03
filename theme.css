@@ -154,12 +154,14 @@ body:not(.is-mobile)
 	}
 }
 
+/* command + f 搜索匹配关键字高亮样式 */
 .cm-s-obsidian span.obsidian-search-match-highlight {
 	background-color: var(--text-highlight-bg);
 	box-shadow: none;
 	border-radius: 0;
 }
 
+/* 内联代码样式 */
 .cm-s-obsidian .cm-inline-code:not(.cm-formatting) {
 	background-color: var(--quietus-inline-code-background);
 }
