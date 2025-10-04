@@ -214,6 +214,11 @@ body:not(.is-mobile)
 		margin-right: 1px;
 	}
 
+	/* 通过标题前缀来区分标题级别，所以这里统一标题文字大小 */
+	.HyperMD-header {
+		font-size: 24px;
+	}
+
 	/* 设置标题前缀 */
 	:is(h1, .HyperMD-header-1)::before {
 		content: "H1";
@@ -240,5 +245,10 @@ body:not(.is-mobile)
 		padding-top: 5px !important;
 		/* 设置标题底部线条 */
 		border-bottom: dashed 0.5px;
+
+		/* 隐藏折叠指示器 */
+		.cm-fold-indicator {
+			display: none;
+		}
 	}
 }
