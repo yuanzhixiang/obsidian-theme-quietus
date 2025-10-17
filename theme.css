@@ -66,21 +66,6 @@ body.theme-dark {
 	white-space: nowrap;
 }
 
-/* 图片居中 */
-.markdown-source-view.mod-cm6 .cm-content > img {
-	margin: auto !important;
-}
-
-/* 图片悬停效果 */
-.markdown-source-view.mod-cm6 .cm-content > img {
-	transition: transform 0.5s ease, box-shadow 0.5s ease;
-	max-width: 100%;
-	&:hover {
-		transform: scale(1.005);
-		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-	}
-}
-
 /* 设置内部链接样式 */
 .markdown-source-view.mod-cm6 .cm-hmd-internal-link .cm-underline {
 	text-decoration: none;
@@ -194,6 +179,45 @@ body:not(.is-mobile)
 
 /* 标题样式 */
 .cm-s-obsidian {
+	/* 图片样式（限定在 .cm-s-obsidian 内） */
+	.cm-content > img {
+		display: block;
+		margin: auto !important;
+		transition: transform 0.5s ease, box-shadow 0.5s ease;
+		max-width: 100%;
+		&:hover {
+			transform: scale(1.005);
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+		}
+	}
+
+	/* 图片嵌入容器居中（如 .internal-embed.media-embed.image-embed） */
+	.internal-embed.media-embed.image-embed {
+		/* display: block; */
+		margin: auto !important;
+		/* 仅作为裁剪容器，不限制内部尺寸和效果 */
+		overflow: hidden;
+		/* 与 .cm-content > img 保持一致的阴影过渡节奏 */
+		transition: box-shadow 0.5s ease;
+
+		/* 当内部图片悬停时，由容器显示阴影，避免被裁剪 */
+		&:has(img:hover) {
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+		}
+
+		/* 容器内图片同样保持居中和悬停效果 */
+		img {
+			display: block;
+			margin: auto !important;
+			max-width: 100%;
+			/* 与 .cm-content > img 保持一致的过渡设置 */
+			transition: transform 0.5s ease, box-shadow 0.5s ease;
+			&:hover {
+				transform: scale(1.005);
+			}
+		}
+	}
+
 	/* 通用 before 样式 */
 	:is(
 			h1,
