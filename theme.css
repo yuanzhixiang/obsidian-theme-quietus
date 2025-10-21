@@ -180,8 +180,8 @@ body:not(.is-mobile)
 /* 标题样式 */
 .cm-s-obsidian {
 	/* 图片样式（限定在 .cm-s-obsidian 内） */
-	.cm-content > img {
-		display: block;
+	/* 提高选择器特异性以覆盖 Obsidian 默认样式 */
+	&.markdown-source-view.mod-cm6 .cm-content > img {
 		margin: auto !important;
 		transition: transform 0.5s ease, box-shadow 0.5s ease;
 		max-width: 100%;
