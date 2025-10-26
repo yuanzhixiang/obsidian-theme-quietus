@@ -1,0 +1,67 @@
+name: Release Obsidian Theme
+
+on:
+    push:
+        tags:
+            - "*"
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            - name: Get tag version
+              id: get_version
+              run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+            - name: Validate version in manifest.json
+              id: validate_version
+              run: |
+                  MANIFEST_VERSION=$(grep -oP '(?<="version": ")[^"]*' manifest.json)
+                  TAG_VERSION=${{ steps.get_version.outputs.VERSION }}
+                  if [ "$MANIFEST_VERSION" != "$TAG_VERSION" ]; then
+                    echo "::error::Version mismatch! manifest.json has $MANIFEST_VERSION but tag is $TAG_VERSION"
+                    exit 1
+                  fi
+                  echo "Version validated: $MANIFEST_VERSION"
+
+            - name: Create Release
+              id: create_release
+              uses: actions/create-release@v1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  tag_name: ${{ github.ref }}
+                  release_name: Release ${{ steps.get_version.outputs.VERSION }}
+                  body: |
+                      Release version ${{ steps.get_version.outputs.VERSION }}
+
+                      ## Installation
+                      1. Download `theme.css` and `manifest.json`
+                      2. Place them in your `.obsidian/themes/Quietus/` folder
+                      3. Enable the theme in Obsidian settings
+                  draft: false
+                  prerelease: false
+
+            - name: Upload theme.css
+              uses: actions/upload-release-asset@v1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  upload_url: ${{ steps.create_release.outputs.upload_url }}
+                  asset_path: ./theme.css
+                  asset_name: theme.css
+                  asset_content_type: text/css
+
+            - name: Upload manifest.json
+              uses: actions/upload-release-asset@v1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  upload_url: ${{ steps.create_release.outputs.upload_url }}
+                  asset_path: ./manifest.json
+                  asset_name: manifest.json
+                  asset_content_type: application/json
