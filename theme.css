@@ -185,6 +185,10 @@ body:not(.is-mobile)
 		margin: auto !important;
 		transition: transform 0.5s ease, box-shadow 0.5s ease;
 		max-width: 100%;
+		max-height: 600px; /* 设置最大高度，宽度会自动等比缩放 */
+		height: auto; /* 保持宽高比 */
+		width: auto; /* 保持宽高比 */
+		object-fit: contain; /* 确保图片完整显示 */
 		&:hover {
 			transform: scale(1.005);
 			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -210,6 +214,10 @@ body:not(.is-mobile)
 			display: block;
 			margin: auto !important;
 			max-width: 100%;
+			max-height: 600px; /* 设置最大高度，宽度会自动等比缩放 */
+			height: auto; /* 保持宽高比 */
+			width: auto; /* 保持宽高比 */
+			object-fit: contain; /* 确保图片完整显示 */
 			/* 与 .cm-content > img 保持一致的过渡设置 */
 			transition: transform 0.5s ease, box-shadow 0.5s ease;
 			&:hover {
