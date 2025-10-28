@@ -66,6 +66,11 @@ body.theme-dark {
 	white-space: nowrap;
 }
 
+/* 列表项长文本换行 */
+.cm-s-obsidian .cm-line {
+	word-break: break-all;
+}
+
 /* 设置内部链接样式 */
 .markdown-source-view.mod-cm6 .cm-hmd-internal-link .cm-underline {
 	text-decoration: none;
