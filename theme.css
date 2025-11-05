@@ -289,3 +289,15 @@ body:not(.is-mobile)
 		}
 	}
 }
+
+.view-content {
+	/* 读书卡片悬停效果 */
+	.bases-cards-item {
+		transition: box-shadow 1s cubic-bezier(0.07, 0.07, 0.25, 0.95);
+		cursor: pointer;
+
+		&:hover {
+			box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+		}
+	}
+}
