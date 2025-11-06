@@ -72,13 +72,13 @@ body.theme-dark {
 }
 
 /* 设置内部链接样式 */
-.markdown-source-view.mod-cm6 .cm-hmd-internal-link .cm-underline {
+/* .markdown-source-view.mod-cm6 .cm-hmd-internal-link .cm-underline {
 	text-decoration: none;
 }
 
 .markdown-source-view.mod-cm6 .cm-hmd-internal-link .cm-underline::before {
-	content: "↪ ";
-}
+	content: "↪";
+} */
 
 .markdown-source-view.mod-cm6 .cm-hmd-internal-link:hover,
 .markdown-source-view.mod-cm6 .cm-hmd-internal-link .cm-underline:hover {
