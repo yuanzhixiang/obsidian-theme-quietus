@@ -1,6 +1,6 @@
 {
 	"name": "quietus-obsidian-theme",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "A minimalist and elegant Obsidian theme focused on clean typography and smooth interactions",
 	"scripts": {
 		"version": "node version-bump.mjs && git add manifest.json versions.json",
