@@ -185,7 +185,10 @@ body:not(.is-mobile)
 /* 标题样式 */
 .cm-s-obsidian {
 	/* 图片嵌入容器居中 */
-	.cm-content > .image-embed {
+	/* 旧版 Obsidian 把图片渲染成 .cm-content 的直接子元素（块级 widget）；
+	   新版改成 .cm-line 内的 inline-flex widget，margin auto 对行内元素无效，需改为 flex 块 */
+	:is(.cm-content, .cm-line) > .image-embed {
+		display: flex;
 		width: fit-content;
 		max-width: 100%;
 		/* 覆盖 Obsidian 的 .cm-content > * { margin: 0 !important } */
